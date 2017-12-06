@@ -38,3 +38,12 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.registerButton {
+  color: black;
+  height: 40px;
+  width: 300px;
+  margin-top: 20px;
+  margin-left: 420px;
+  background-color: white;
+}
