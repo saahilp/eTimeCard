@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Welcome to eTimeCard!
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='landing.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-3">eTimeCard</h1>
+        <p class="lead">Revolutionising Purdue CS's timecard system. </p>
+        <hr class="my-4">
+        <p>Tired of turning in your time cards every two weeks? Don't worry! Do it now on the go, whenever you like.</p>
+        <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+    </div> <!-- /container -->
+
+
+{% endblock %}
