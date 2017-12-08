@@ -26,14 +26,15 @@ Dashboard
       </form>
     </div>
     </div>
-    { % if inp %}
+
     <div class="container">
+      {% if inp %}
     <table class="table">
       <thead>
         <tr>
-          <th>name</th>
-          <th>age</th>
-          <th>option</th>
+          <th>Date</th>
+          <th>Time Worked</th>
+          <th>Description</th>
         <tr>
         </thead>
         <tbody>
@@ -46,8 +47,9 @@ Dashboard
           {% endfor %}
         </tbody>
       </table>
+      {% endif %}
     </div>
-    {% endif %}
+
     </div> <!-- /container -->
 
 
