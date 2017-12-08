@@ -7,7 +7,15 @@ import myForms
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MAH_SECRET'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////C://Users//admin//eTimeCard//testdatabase.db'
+db = SQLAlchemy(app)
 Bootstrap(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20), unique=True)
+    email = db.Column(db.String(30), unique=True)
+    password = db.Column(db.String(30))
 
 @app.route('/')
 def index():
