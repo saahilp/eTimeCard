@@ -109,10 +109,12 @@ def start():
 
     return redirect(url_for('start'))
 
-@app.route('/end')
+@app.route('/end', methods=['GET', 'POST'])
 def end():
 
-    old_entry = Timestamps.query.filter_by(username = current_user.username, endTime = None)
+    form = myForms.descriptionForm()
+
+    old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None)
     old_entry.endTime = datetime.now()
     old_entry.timeWorked = old_entry.endTime - old_entry.startTime
 
