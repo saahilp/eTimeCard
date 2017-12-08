@@ -32,6 +32,7 @@ Dashboard
     <table class="table">
       <thead>
         <tr>
+          <th> Name </th>
           <th>Date</th>
           <th>Time Worked</th>
           <th>Description</th>
@@ -40,6 +41,7 @@ Dashboard
         <tbody>
           {% for shift in inp %}
           <tr>
+            <td>{{ shift.username }}</td>
             <td>{{ shift.date }}</td>
             <td>{{ shift.timeWorked }}</td>
             <td>{{ shift.description }}</td>
