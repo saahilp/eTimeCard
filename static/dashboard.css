@@ -1,3 +1,7 @@
 #recordForm {
   margin-top: 150px;
 }
+
+.recordBtns {
+  display: inline;
+}
