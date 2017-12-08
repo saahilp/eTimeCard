@@ -110,7 +110,18 @@ def start():
 @app.route('/end')
 def end():
 
-    old_entry = Timestamps.query.filter_by(username = current_user.username)
+    old_entry = Timestamps.query.filter_by(username = current_user.username, endTime = None)
+    old_entry.endTime = datetime.now()
+    old_entry.timeWorked = old_entry.endTime - old_entry.startTime
+
+    db.session.commit()
+
+    return redirect(url_for('logout'))
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
 
 
