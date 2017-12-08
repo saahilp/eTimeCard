@@ -99,13 +99,18 @@ def start():
 
     if(form.validate_on_submit):
 
-        new_entry = Timestamps(current_user.username, startTime = datetime.now(), description = form.descriptionn, data)
+        new_entry = Timestamps(username = current_user.username, startTime = datetime.now(), description = form.description, data)
         db.session.add(new_entry)
         db.session.commit()
 
         return redirect(url_for('dashboard'))
 
     return redirect(url_for('start'))
+
+@app.route('/end')
+def end():
+
+    old_entry = Timestamps.query.filter_by(username = current_user.username)
 
 
 
