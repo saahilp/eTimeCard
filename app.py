@@ -13,8 +13,8 @@ app.config['SECRET_KEY'] = 'MAH_SECRET'
 #file_path = os.path.abspath(os.getcwd())+"/testdatabase.db"
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-add = 'mysql://root:secret@localhost/testdatabase'
-app.config['SQLALCHEMY_DATABASE_URI'] = add
+#add = 'mysql://root:secret@localhost/testdatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 Bootstrap(app)
 
