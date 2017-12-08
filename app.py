@@ -93,7 +93,7 @@ def dashboard():
 
     new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
     db.session.add(new_timeStamp)
-    db.commit()
+    db.session.commit()
 
     #temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
 
