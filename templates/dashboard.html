@@ -17,6 +17,7 @@ Dashboard
       <form class="form-signin" method="GET" action="/dashboard">
         <h2 class="form-signin-heading">What is your goal for today?</h2>
         {{ form.hidden_tag() }}
+        {{ form.csrf_token   }}
         {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.description) }}
         {{ wtf.form_field(form.timeWorked) }}
