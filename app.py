@@ -55,7 +55,7 @@ def login():
 
 
     if form.validate_on_submit():
-        print("12345678992000kvbksbvbja")
+        print("1234567899200kvbksbvbja")
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             #if check_password_hash(user.password, form.password.data):
