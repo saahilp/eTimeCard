@@ -63,9 +63,9 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
 
-        #temp = User.query.all()
-        #for i in temp:
-        #    print(i.username)
+        temp = User.query.all()
+        for i in temp:
+            print(i.username)
         return '<h1>New user has been created!</h1>'
 
     return render_template('registration.html', form=form)
