@@ -1,13 +1,20 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
+from flask_sqlalchemy  import SQLAlchemy
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
 import myForms
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MAH_SECRET'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////C://Users//admin//eTimeCard//testdatabase.db'
+
+#file_path = os.path.abspath(os.getcwd())+"/testdatabase.db"
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+add = 'mysql://root:secret@localhost/testdatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = add
 db = SQLAlchemy(app)
 Bootstrap(app)
 
