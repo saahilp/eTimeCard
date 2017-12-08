@@ -95,6 +95,7 @@ def dashboard():
     return render_template('dashboard.html', inp = temp, form=form)
 
 @app.route('/start', methods=['GET', 'POST'])
+@login_required
 def start():
 
     form = myForms.descriptionForm()
