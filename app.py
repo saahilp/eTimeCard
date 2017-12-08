@@ -103,7 +103,7 @@ def dashboard():
         for i in temp:
             print(i.username)
             print(i.hours)
-        return render_template('showTables.html', inp = temp)
+    return render_template('showTables.html', inp = temp)
 
     #temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
 
