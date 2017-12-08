@@ -66,6 +66,10 @@ def registration():
 
     return render_template('registration.html', form=form)
 
+@app.route('/dashboard')
+def dashboard():
+return render_template('dashboard.html')
+
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
