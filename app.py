@@ -34,6 +34,17 @@ def index():
 def login():
 
     form = myForms.LoginForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            #if check_password_hash(user.password, form.password.data):
+            if(user.password, form.password,data)
+                #login_user(user, remember=form.remember.data)
+                return redirect(url_for('dashboard'))
+
+return '<h1>Invalid username or password</h1>'
+
     return render_template('login.html', form=form)
 
 @app.route('/registration', methods=['GET', 'POST'])
@@ -47,9 +58,9 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
 
-        temp = User.query.all()
-        for i in temp:
-            print(i.username)
+        #temp = User.query.all()
+        #for i in temp:
+        #    print(i.username)
         return '<h1>New user has been created!</h1>'
 
     return render_template('registration.html', form=form)
