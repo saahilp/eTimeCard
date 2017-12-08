@@ -101,7 +101,7 @@ def start():
 
     if(form.validate_on_submit):
 
-        new_entry = Timestamps(username = current_user.username, startTime = datetime.now(), description = form.description.data)
+        new_entry = Timestamps(username = form.username.data, startTime = datetime.now(), description = form.description.data)
         db.session.add(new_entry)
         db.session.commit()
 
