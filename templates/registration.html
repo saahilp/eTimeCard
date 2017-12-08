@@ -19,16 +19,11 @@ Sign Up
     {{ wtf.form_field(form.username) }}
     {{ wtf.form_field(form.email) }}
     {{ wtf.form_field(form.password) }}
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Teaching Assistant</a>
-        <a class="dropdown-item" href="#">Instructor</a>
-      </div>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    <select class="form-control">
+          <option value="ta"> Teaching Assistant</option>
+          <option value="instructor"> Instructor </option>
+    </select>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" id="signUpButton">Sign Up</button>
   </form>
 
 </div> <!-- /container -->
