@@ -92,7 +92,10 @@ def dashboard():
 
     new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
 
-    temp = User.query.all()
+
+    temp = User.query.filter_by(username = new_timeStamp.username).all()
+
+
     return render_template('dashboard.html', inp = temp, form=form)
 '''
 @app.route('/start', methods=['GET', 'POST'])

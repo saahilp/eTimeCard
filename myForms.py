@@ -16,5 +16,5 @@ class RegisterForm(FlaskForm):
 class descriptionForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired()])
     description = StringField('Description')
-    timeWorked = DecimalField('timeWorked')
+    timeWorked = FloatField('timeWorked')
     date = DateField('Date')
