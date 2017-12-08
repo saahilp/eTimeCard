@@ -15,7 +15,7 @@ There would be a different kind of account for professors, who would be able to 
 
   a) Maintain two separate types of accounts, for TA and Professors.
 
-  b) Create 4 API-endpoints: Landing page, Registration, Login, Logout and Dashboard
+  b) Create 5 API-endpoints: Landing page, Registration, Login, Logout and Dashboard
 
   c) Create one database table for the user validation, and then for each individual user, maintain a separate table containing all the time-stamps
      and descriptions for that individual user

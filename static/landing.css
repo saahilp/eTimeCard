@@ -1,8 +1,12 @@
 body {
-  background-color: deepskyblue;
+  background-color: #16b5dd;
 }
 
 .jumbotron {
-
+  color: #ff0000;
   background-image: url("images/background.jpg");
+}
+
+#logInBtn {
+  margin-left: 500px;
 }
