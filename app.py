@@ -92,7 +92,7 @@ def dashboard():
     form = myForms.descriptionForm()
 
     temp = User.query.all()
-    return render_template('dashboard.html', inp = temp)
+    return render_template('dashboard.html', inp = temp, form=form)
 
 @app.route('/start', methods=['GET', 'POST'])
 def start():
