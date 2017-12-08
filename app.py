@@ -8,7 +8,7 @@ import myForms
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2
-from datetime import
+from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
@@ -21,8 +21,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 Bootstrap(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
-class User(db.Model):
+
+class User(UserMixin, Udb.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(36), unique=True)
@@ -37,7 +41,9 @@ class Timestamps(db.Model):
     timeWorked = db.Column(db.Datetime)
     description = db.Column(db.String(200))
 
-
+@login_manager.user_loader
+def load_user(user_id):
+return User.query.get(int(user_id))
 
 @app.route('/')
 def index():
@@ -93,7 +99,7 @@ def start():
 
     if(form.validate_on_submit):
 
-        new_entry = Timestamps()
+        new_entry = Timestamps(current_user.username, startTime = )
 
 
 if __name__ == '__main__':
