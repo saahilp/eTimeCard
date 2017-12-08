@@ -90,15 +90,16 @@ def dashboard():
 
     form = myForms.descriptionForm()
 
-
-    new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
-    db.session.add(new_timeStamp)
-    db.session.commit()
+    if(form.validate_on_submit):
+        new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
+        db.session.add(new_timeStamp)
+        db.session.commit()
+        return redirect(url_for('showTables'))
 
     #temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
 
+    return render_template('dashboard.html', form = form)
 
-    return redirect(url_for('showTables'))
 
 @app.route('/showTables')
 def showTables():
