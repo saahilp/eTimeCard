@@ -43,7 +43,7 @@ class Timestamps(db.Model):
 
 @login_manager.user_loader
 def load_user(user_id):
-return User.query.get(int(user_id))
+    return User.query.get(int(user_id))
 
 @app.route('/')
 def index():
@@ -95,11 +95,18 @@ def dashboard():
 @app.route('/start')
 def start():
 
-    form  = myForms.descritionForm()
+    form = myForms.descritionForm()
 
     if(form.validate_on_submit):
 
-        new_entry = Timestamps(current_user.username, startTime = )
+        new_entry = Timestamps(current_user.username, startTime = datetime.now(), description = form.descriptionn, data)
+        db.session.add(new_entry)
+        db.session.commit()
+
+        return redirect(url_for('dashboard'))
+
+
+
 
 
 if __name__ == '__main__':
