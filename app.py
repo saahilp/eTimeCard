@@ -69,7 +69,9 @@ def registration():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+
+    temp = User.query.all()
+    return render_template('dashboard.html' inp = temp)
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
