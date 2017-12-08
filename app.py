@@ -37,7 +37,7 @@ class Timestamps(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
     startTime = db.Column(db.DateTime, nullable=False)
-    endTime = db.Column(db.DateTime)
+    endTime = db.Column(db.DateTime, nullable=True)
     timeWorked = db.Column(db.Float)
     description = db.Column(db.String(50))
 
@@ -114,7 +114,7 @@ def end():
 
     form = myForms.descriptionForm()
 
-    old_entry = Timestamps.query.filter(username = form.username.data).filter(endTime = None).first()
+    old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
     old_entry.endTime = datetime.now()
 
     #entr1 = old_entry.startTime.hour +  old_entry.startTime.minute / 60 +  old_entry.startTime.second / 3600
