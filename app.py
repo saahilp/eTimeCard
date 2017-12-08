@@ -82,7 +82,7 @@ def registration():
         temp = User.query.all()
         for i in temp:
             print(i.username)
-        return '<h1>New user has been created!</h1>'
+        return '<h1>New user ha been created!</h1>'
 
     return render_template('registration.html', form=form)
 
