@@ -39,7 +39,7 @@ class Timestamps(UserMixin, db.Model):
     startTime = db.Column(db.DateTime, nullable=False)
     endTime = db.Column(db.DateTime)
     timeWorked = db.Column(db.String(10))
-    description = db.Column(db.Integer(200))
+    description = db.Column(db.Integer)
 
 @login_manager.user_loader
 def load_user(user_id):
