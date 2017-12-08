@@ -90,9 +90,9 @@ def registration():
 def dashboard():
 
     temp = User.query.all()
-    return render_template('dashboard.html', inp = temp
+    return render_template('dashboard.html', inp = temp)
 
-@app.route('/start')
+@app.route('/start', methods=['GET', 'POST'])
 def start():
 
     form = myForms.descritionForm()
@@ -105,7 +105,7 @@ def start():
 
         return redirect(url_for('dashboard'))
 
-
+    return redirect(url_for('start'))
 
 
 
