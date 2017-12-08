@@ -91,7 +91,7 @@ def dashboard():
 
     form = myForms.descriptionForm()
 
-    #temp = Time.query.all()
+    temp = User.query.all()
     return render_template('dashboard.html', inp = temp, form=form)
 
 @app.route('/start', methods=['GET', 'POST'])
@@ -113,7 +113,7 @@ def start():
 def end():
 
     form = myForms.descriptionForm()
-    
+
     old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
     old_entry.endTime = datetime.now()
 
