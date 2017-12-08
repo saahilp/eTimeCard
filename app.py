@@ -41,4 +41,4 @@ def registration():
     return render_template('registration.html', form=form)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=33507)
+    app.run(debug=True, port=33507, host='0.0.0.0')
