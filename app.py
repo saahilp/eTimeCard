@@ -37,6 +37,7 @@ def login():
 
 
     if form.validate_on_submit():
+        print("12345678992000kvbksbvbja")
         user = User.query.filter_by(username='ramyak').first()
         if user:
             #if check_password_hash(user.password, form.password.data):
@@ -44,10 +45,7 @@ def login():
             return redirect(url_for('dashboard'))
 
         return '<h1>Invalid username or password</h1>'
-    print(type(form.username.data))
-    temp = User.query.all()
-    for i in temp:
-        print(type(i.username))
+
     return render_template('login.html', form=form)
 
 @app.route('/registration', methods=['GET', 'POST'])
