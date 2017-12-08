@@ -114,7 +114,7 @@ def end():
 
     form = myForms.descriptionForm()
 
-    old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None)
+    old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
     old_entry.endTime = datetime.now()
     old_entry.timeWorked = old_entry.endTime - old_entry.startTime
 
