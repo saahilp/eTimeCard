@@ -48,7 +48,8 @@ def login():
                 return redirect(url_for('dashboard'))
 
             return '<h1>Invalid username or password</h1>'
-
+    print(user.password)
+    print(form.username.data)
     return render_template('login.html', form=form)
 
 @app.route('/registration', methods=['GET', 'POST'])
