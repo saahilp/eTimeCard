@@ -14,4 +14,5 @@ class RegisterForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired(), Length(min=5, max=20)])
 
 class descriptionForm(FlaskForm):
+    username = StringField('Username', validators=[InputRequired()])
     description = StringField('Description', validators=[InputRequired()])
