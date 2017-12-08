@@ -1,2 +1,1 @@
-web: gunicorn todoapp:app --log-file=-
-
+web: python main.py
