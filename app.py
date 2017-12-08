@@ -86,7 +86,7 @@ def registration():
 
     return render_template('registration.html', form=form)
 
-@app.route('/dashboard')
+@app.route('/dashboard',  methods=['GET', 'POST'])
 def dashboard():
 
     temp = User.query.all()
