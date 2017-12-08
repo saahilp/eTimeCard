@@ -17,13 +17,12 @@ Dashboard
       <form class="form-signin" method="GET" action="/dashboard">
         <h2 class="form-signin-heading">What is your goal for today?</h2>
         {{ form.hidden_tag() }}
-        {{ form.csrf_token   }}
         {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.description) }}
         {{ wtf.form_field(form.timeWorked) }}
         {{ wtf.form_field(form.date) }}
 
-        <button type="submit" class="btn btn-primary recordBtns">Record hours worked</button>
+        <button type="submit" class="btn btn-primary recordBtns"  id="dashboard">Record hours worked</button>
       </form>
     </div>
     </div>
