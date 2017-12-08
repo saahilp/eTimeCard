@@ -36,10 +36,9 @@ class Timestamps(UserMixin, db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
-    startTime = db.Column(db.DateTime, nullable=False)
-    endTime = db.Column(db.DateTime, nullable=True)
     timeWorked = db.Column(db.Float)
     description = db.Column(db.String(50))
+    date = db.Column(db.DateTime)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -91,9 +90,11 @@ def dashboard():
 
     form = myForms.descriptionForm()
 
+    new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
+
     temp = User.query.all()
     return render_template('dashboard.html', inp = temp, form=form)
-
+'''
 @app.route('/start', methods=['GET', 'POST'])
 def start():
 
@@ -125,7 +126,7 @@ def end():
     db.session.commit()
 
     return redirect(url_for('logout'))
-
+'''
 @app.route('/logout')
 def logout():
     logout_user()
