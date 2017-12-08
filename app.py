@@ -39,14 +39,17 @@ def login():
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
     form = myForms.RegisterForm()
-    
+
     if form.validate_on_submit():
         #hashed_password = generate_password_hash(form.password.data, method='sha256')
-        
+
         new_user = User(username=form.username.data, email=form.email.data, password=form.password.data)
         db.session.add(new_user)
         db.session.commit()
 
+        temp = User.query.all()
+        for i in temp:
+            print(i.username)
         return '<h1>New user has been created!</h1>'
 
     return render_template('registration.html', form=form)
