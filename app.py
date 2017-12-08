@@ -36,10 +36,10 @@ def login():
     form = myForms.LoginForm()
 
     #if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        print(user.password)
-        print(form.username.data)
-        if user:
+    user = User.query.filter_by(username=form.username.data).first()
+    print(user.password)
+    print(form.username.data)
+    if user:
             #print(user.password, form.username.data)
             #if check_password_hash(user.password, form.password.data):
         if(str(user.password) == str(form.password.data)):
@@ -47,7 +47,7 @@ def login():
                 #login_user(user, remember=form.remember.data)
             return redirect(url_for('dashboard'))
 
-        return '<h1>Invalid username or password</h1>'
+    return '<h1>Invalid username or password</h1>'
     print(user.password)
     print(form.username.data)
     return render_template('login.html', form=form)
