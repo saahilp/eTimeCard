@@ -42,12 +42,12 @@ def login():
         if user:
             #print(user.password, form.username.data)
             #if check_password_hash(user.password, form.password.data):
-            if(str(user.password) == str(form.password.data)):
+        if(str(user.password) == str(form.password.data)):
 
                 #login_user(user, remember=form.remember.data)
-                return redirect(url_for('dashboard'))
+            return redirect(url_for('dashboard'))
 
-            return '<h1>Invalid username or password</h1>'
+        return '<h1>Invalid username or password</h1>'
     print(user.password)
     print(form.username.data)
     return render_template('login.html', form=form)
