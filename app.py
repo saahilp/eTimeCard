@@ -95,6 +95,9 @@ def dashboard():
         db.session.add(new_timeStamp)
         db.session.commit()
         temp = Timestamps.query.all()
+        for i in temp:
+            print(i.username)
+            print(i.hours)
         return render_template('showTables.html', inp = temp)
 
     #temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
