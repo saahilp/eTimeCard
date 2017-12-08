@@ -37,7 +37,7 @@ def login():
 
     #if form.validate_on_submit():
     user = User.query.filter_by(username=form.username.data).first()
-    print(user.password)
+    print(username)
     print(form.username.data)
     if user:
             #print(user.password, form.username.data)
@@ -48,7 +48,7 @@ def login():
             return redirect(url_for('dashboard'))
 
     return '<h1>Invalid username or password</h1>'
-    print(user.password)
+    #print(user.password)
     print(form.username.data)
     return render_template('login.html', form=form)
 
