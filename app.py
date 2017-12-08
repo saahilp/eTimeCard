@@ -6,6 +6,7 @@ from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, Length
 import myForms
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MAH_SECRET'
@@ -37,6 +38,14 @@ def login():
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
     form = myForms.RegisterForm()
+    
+    if form.validate_on_submit():
+        hashed_password = generate_password_hash(form.password.data, method='sha256')
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return '<h1>New user has been created!</h1>'
 
     return render_template('registration.html', form=form)
 
