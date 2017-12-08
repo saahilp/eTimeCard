@@ -95,7 +95,7 @@ def dashboard():
 @app.route('/start', methods=['GET', 'POST'])
 def start():
 
-    form = myForms.descritionForm()
+    form = myForms.descriptionForm()
 
     if(form.validate_on_submit):
 
