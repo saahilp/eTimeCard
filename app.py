@@ -38,7 +38,7 @@ class Timestamps(UserMixin, db.Model):
     username = db.Column(db.String(20))
     startTime = db.Column(db.DateTime, nullable=False)
     endTime = db.Column(db.DateTime)
-    timeWorked = db.Column(db.DateTime)
+    timeWorked = db.Column(db.String(10))
     description = db.Column(db.String(200))
 
 @login_manager.user_loader
@@ -116,8 +116,9 @@ def end():
 
     old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
     old_entry.endTime = datetime.now()
-    old_entry.timeWorked = old_entry.endTime - old_entry.startTime
 
+    diff = (old_entry.endTime - old_entry.startTime).total_seconds() / 60
+    old_entry.timeWorked = str(diff)
     db.session.commit()
 
     return redirect(url_for('logout'))
