@@ -37,7 +37,7 @@ def login():
 
     #if form.validate_on_submit():
     user = User.query.filter_by(username=form.username.data).first()
-    print(username)
+    #print(username)
     print(form.username.data)
     if user:
             #print(user.password, form.username.data)
