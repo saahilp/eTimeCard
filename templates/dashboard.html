@@ -1,5 +1,25 @@
-<select>
-{% for t in inp %}
-    <option value="{{ t.id }}">{{ t.email }}{{ t.username }}</option>
-{% endfor %}
-</select>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+      <form class="form-inline">
+        <div class="form-group mx-sm-3">
+          <label for="inputPassword2" class="sr-only">Description</label>
+          <input type="text" class="form-control" id="taskDesc" placeholder="Description">
+        </div>
+        <button type="submit" class="btn btn-primary">Record timestamp</button>
+      </form>
+    </div> <!-- /container -->
+
+
+{% endblock %}
