@@ -97,39 +97,7 @@ def dashboard():
 
 
     return render_template('dashboard.html', inp = temp, form=form)
-'''
-@app.route('/start', methods=['GET', 'POST'])
-def start():
 
-    form = myForms.descriptionForm()
-
-    if(form.validate_on_submit):
-
-        new_entry = Timestamps(username = form.username.data, startTime = datetime.now(), description = form.description.data)
-        db.session.add(new_entry)
-        db.session.commit()
-
-        return redirect(url_for('dashboard'))
-
-    return redirect(url_for('start'))
-
-@app.route('/end', methods=['GET', 'POST'])
-def end():
-
-    form = myForms.descriptionForm()
-
-    old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
-    old_entry.endTime = datetime.now()
-
-    #entr1 = old_entry.startTime.hour +  old_entry.startTime.minute / 60 +  old_entry.startTime.second / 3600
-    #entr2 = old_entry.endTime.hour + old_entry.endTime.minute / 60 + old_entry.endTime.second / 3600
-
-    diff = old_entry.endTime - old_entry.startTime
-    old_entry.timeWorked = float(diff.total_seconds())
-    db.session.commit()
-
-    return redirect(url_for('logout'))
-'''
 @app.route('/logout')
 def logout():
     logout_user()
