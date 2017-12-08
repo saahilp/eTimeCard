@@ -90,7 +90,7 @@ def dashboard():
 
     form = myForms.descriptionForm()
 
-    if(form.validate_on_submit()):
+    if form.validate_on_submit():
         new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
         db.session.add(new_timeStamp)
         db.session.commit()
