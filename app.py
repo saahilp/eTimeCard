@@ -12,7 +12,7 @@ from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'MAH_SECRET'
+app.config['SECRET_KEY'] = 'MY_SECRET'
 
 #file_path = os.path.abspath(os.getcwd())+"/testdatabase.db"
 
@@ -32,7 +32,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(36), unique=True)
     password = db.Column(db.String(256))
 
-class Timestamps(UserMixin, db.Model):
+
+class Timestamps(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
