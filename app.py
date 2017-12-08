@@ -99,7 +99,7 @@ def dashboard():
         db.session.add(new_timeStamp)
         db.session.commit()
 
-        temp = Timestamps.query.all()
+        temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
         for i in temp:
             print(i.username)
             print(i.timeWorked)
