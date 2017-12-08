@@ -36,9 +36,9 @@ class Timestamps(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
-    startTime = db.Column(db.Datetime, nullable=False)
-    endTime = db.Column(db.Datetime)
-    timeWorked = db.Column(db.Datetime)
+    startTime = db.Column(db.DateTime, nullable=False)
+    endTime = db.Column(db.DateTime)
+    timeWorked = db.Column(db.DateTime)
     description = db.Column(db.String(200))
 
 @login_manager.user_loader
