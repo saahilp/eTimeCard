@@ -117,11 +117,11 @@ def end():
     old_entry = Timestamps.query.filter_by(username = form.username.data, endTime = None).first()
     old_entry.endTime = datetime.now()
 
-    entr1 = old_entry.startTime.hour +  old_entry.startTime.minute / 60 +  old_entry.startTime.second / 3600
-    entr2 = old_entry.endTime.hour + old_entry.endTime.minute / 60 + old_entry.endTime.second / 3600
+    #entr1 = old_entry.startTime.hour +  old_entry.startTime.minute / 60 +  old_entry.startTime.second / 3600
+    #entr2 = old_entry.endTime.hour + old_entry.endTime.minute / 60 + old_entry.endTime.second / 3600
 
-    diff = entr2 - entr1
-    old_entry.timeWorked = float(diff)
+    diff = old_entry.endTime - old_entry.startTime
+    old_entry.timeWorked = float(diff.total_seconds())
     db.session.commit()
 
     return redirect(url_for('logout'))
