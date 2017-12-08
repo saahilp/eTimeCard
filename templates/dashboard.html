@@ -12,12 +12,13 @@ Dashboard
 
 {% block content %}
     <div class="container">
-      <form class="form-inline">
-        <div class="form-group mx-sm-3">
-          <label for="inputPassword2" class="sr-only">Description</label>
+      <form>
+        <div class="form-group">
+          <label for="taskDesc">Description</label>
           <input type="text" class="form-control" id="taskDesc" placeholder="Description">
         </div>
-        <button type="submit" class="btn btn-primary">Record timestamp</button>
+        <button type="submit" class="btn btn-primary">Record clock in</button>
+        <button type="submit" class="btn btn-primary">Record clock out</button>
       </form>
     </div> <!-- /container -->
 
