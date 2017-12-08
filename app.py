@@ -8,6 +8,8 @@ import myForms
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2
+from datetime import
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'MAH_SECRET'
@@ -25,6 +27,17 @@ class User(db.Model):
     username = db.Column(db.String(20), unique=True)
     email = db.Column(db.String(36), unique=True)
     password = db.Column(db.String(256))
+
+class Timestamps(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20))
+    startTime = db.Column(db.Datetime, nullable=False)
+    endTime = db.Column(db.Datetime)
+    timeWorked = db.Column(db.Datetime)
+    description = db.Column(db.String(200))
+
+
 
 @app.route('/')
 def index():
@@ -71,7 +84,17 @@ def registration():
 def dashboard():
 
     temp = User.query.all()
-    return render_template('dashboard.html', inp = temp)
+    return render_template('dashboard.html', inp = temp
+
+@app.route('/start')
+def start():
+
+    form  = myForms.descritionForm()
+
+    if(form.validate_on_submit):
+
+        new_entry = Timestamps()
+
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

@@ -4,4 +4,4 @@ Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 WTForms==2.1
 psycopg2==2.7.3.2
-
+Flask-Login==0.4.1
