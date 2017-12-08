@@ -47,7 +47,7 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
 
-        return '<h1>New has been created!</h1>'
+        return '<h1>New user has been created!</h1>'
 
     return render_template('registration.html', form=form)
 
