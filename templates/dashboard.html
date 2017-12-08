@@ -13,15 +13,19 @@ Dashboard
 {% block content %}
     <div class="container">
       <div id="recordForm">
+        <div id="clockIn">
       <form class="form-signin" method="POST" action="/start">
         <h2 class="form-signin-heading">What is your goal for today?</h2>
         {{ form.hidden_tag() }}
         {{ wtf.form_field(form.description) }}
         <button type="submit" class="btn btn-primary recordBtns">Record clock in</button>
       </form>
+    </div>
+    <div id="clockOut">
       <form class="form-signin" method="POST" action="/end">
-        <button type="submit" class="btn btn-primary" id="clockOut">Record clock out</button>
+        <button type="submit" class="btn btn-primary">Record clock out</button>
       </form>
+    </div>
       </div>
     </div> <!-- /container -->
 
