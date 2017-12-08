@@ -87,6 +87,7 @@ def registration():
     return render_template('registration.html', form=form)
 
 @app.route('/dashboard',  methods=['GET', 'POST'])
+@login_required
 def dashboard():
 
     form = myForms.descriptionForm()
