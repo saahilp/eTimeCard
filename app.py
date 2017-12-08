@@ -90,6 +90,7 @@ def dashboard():
 
     form = myForms.descriptionForm()
 
+
     new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
 
 
