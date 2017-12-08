@@ -92,12 +92,21 @@ def dashboard():
 
 
     new_timeStamp = Timestamps(username = form.username.data, timeWorked = form.timeWorked.data, date = form.date.data, description = form.description.data)
+    db.session.add(new_timeStamp)
+    db.commit()
+
+    #temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
 
 
-    temp = Timestamps.query.filter_by(username = new_timeStamp.username).all()
+    return redirect(url_for('showTables'))
 
+@app.route('/showTables')
+def showTables():
 
-    return render_template('dashboard.html', inp = temp, form=form)
+    temp = Timestamps.query.all()
+
+    return render_template('showTables.html', inp = temp)
+
 
 @app.route('/logout')
 def logout():
@@ -107,6 +116,6 @@ def logout():
 
 
 if __name__ == '__main__':
-    # Bind to PORT if defined, otherwise default to 5000.
+    # Bind to PORT if defied, otherwise default to 5000.
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
