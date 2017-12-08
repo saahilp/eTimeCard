@@ -14,7 +14,7 @@ Dashboard
     <div class="container">
       <div id="recordForm">
         <div id="clockIn">
-      <form class="form-signin" method="POST" action="/dashboard">
+      <form class="form-signin" method="POST" action="/showTable">
         <h2 class="form-signin-heading">What is your goal for today?</h2>
         {{ form.hidden_tag() }}
         {{ wtf.form_field(form.username) }}
@@ -26,6 +26,28 @@ Dashboard
       </form>
     </div>
     </div>
+    { % if inp %}
+    <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>option</th>
+        <tr>
+        </thead>
+        <tbody>
+          {% for shift in inp %}
+          <tr>
+            <td>{{ shift.date }}</td>
+            <td>{{ shift.timeWorked }}</td>
+            <td>{{ shift.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
     </div> <!-- /container -->
 
 
