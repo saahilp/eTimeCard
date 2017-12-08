@@ -38,11 +38,12 @@ def login():
 
     if form.validate_on_submit():
         print("12345678992000kvbksbvbja")
-        user = User.query.filter_by(username='ramyak').first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user:
             #if check_password_hash(user.password, form.password.data):
+            if(user.password == form.password.data):
                 #login_user(user, remember=form.remember.data)
-            return redirect(url_for('dashboard'))
+                return redirect(url_for('dashboard'))
 
         return '<h1>Invalid username or password</h1>'
 
