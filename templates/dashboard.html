@@ -17,6 +17,7 @@ Dashboard
       <form class="form-signin" method="POST" action="/start">
         <h2 class="form-signin-heading">What is your goal for today?</h2>
         {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.username) }}
         {{ wtf.form_field(form.description) }}
         <button type="submit" class="btn btn-primary recordBtns">Record clock in</button>
       </form>
