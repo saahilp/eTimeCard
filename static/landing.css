@@ -10,3 +10,24 @@ body {
 #logInBtn {
   margin-left: 500px;
 }
+#registerContainer {
+  text-align: center;
+}
+#registerText {
+  text-align: center;
+}
+
+#registerButton {
+  margin-top: 20px;
+  margin-left: -620px;
+}
+
+.featureItem {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.featureHeader {
+  font-size: 26px;
+  font-weight: italic;
+}
